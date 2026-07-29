@@ -1,0 +1,48 @@
+{
+  "id": "influxdb",
+  "name": "InfluxDB",
+  "name_en": "InfluxDB",
+  "version": "1.0.0",
+  "description": "Consulta de series de tiempo en InfluxDB: ejecutar consultas Flux/InfluxQL, listar buckets/measurements, y consultar el esquema de una measurement.",
+  "description_en": "Time series queries in InfluxDB: run Flux/InfluxQL queries, list buckets/measurements, and get a measurement's schema.",
+  "category": "databases",
+  "category_en": "databases",
+  "keywords": ["influxdb", "flux", "influxql", "series de tiempo", "time series", "buckets", "measurements", "base de datos", "database"],
+  "icon": "icon.svg",
+  "library": {
+    "package": "ruvic-influxdb-connector",
+    "install": "pip install git+https://github.com/tu-org/conector-influxdb.git#subdirectory=lib",
+    "import_name": "ruvic_influxdb_connector"
+  },
+  "auth_modes": [
+    {
+      "id": "token",
+      "label": "Token de API",
+      "fields": [
+        { "key": "url", "label": "URL del servidor", "type": "text", "required": true, "placeholder": "https://us-east-1-1.aws.cloud2.influxdata.com" },
+        { "key": "token", "label": "Token de API", "type": "password", "secret": true, "required": true, "help_text": "Genéralo en Load Data → API Tokens (InfluxDB Cloud/OSS 2.x)." },
+        { "key": "org", "label": "Organización", "type": "text", "required": true },
+        { "key": "default_bucket", "label": "Bucket por defecto (opcional)", "type": "text", "required": false, "help_text": "Requerido para consultas en modo InfluxQL si no se especifica el bucket en cada llamada." },
+        {
+          "key": "query_language", "label": "Lenguaje de consulta por defecto", "type": "select", "required": false, "default": "flux",
+          "options": [
+            { "value": "flux", "label": "Flux (InfluxDB 2.x, recomendado)" },
+            { "value": "influxql", "label": "InfluxQL (compatibilidad con 1.x)" }
+          ]
+        },
+        { "key": "request_timeout", "label": "Timeout de peticiones (segundos)", "type": "number", "required": false, "default": "30" }
+      ]
+    }
+  ],
+  "env_prefix": "RUVIC_INFLUXDB_",
+  "operations": [
+    "database.execute_query",
+    "database.list_buckets_or_measurements",
+    "database.get_measurement_fields"
+  ],
+  "test_connection": true,
+  "docs": {
+    "skill": "SKILL.md",
+    "permissions_note": "El token de API necesita, como mínimo, permiso de lectura ('Read') sobre los buckets que el agente vaya a consultar — genera un token acotado a buckets específicos en vez de un token de todos los permisos ('All Access'). Este conector no tiene ninguna operación de escritura."
+  }
+}
