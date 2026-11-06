@@ -8,6 +8,9 @@
 </head>
 <body>
   <main class="ruvic-container">
+    <h1 data-i18n="titulo">Conector InfluxDB</h1>
+    <p class="guide-updated">{{ULTIMA_ACTUALIZACION}}</p>
+
     <nav class="ruvic-toc" aria-label="Índice">
       <h2 data-i18n="toc_titulo">Contenido</h2>
       <ol>
@@ -21,9 +24,6 @@
         <li><a href="#faq-seguridad" data-i18n="toc_faq">Preguntas frecuentes y notas de seguridad</a></li>
       </ol>
     </nav>
-
-    <h1 data-i18n="titulo">Conector InfluxDB</h1>
-    <p class="guide-updated">{{ULTIMA_ACTUALIZACION}}</p>
 
     <section>
       <h2 id="que-es" data-i18n="que_es_h2">¿Qué es y para qué sirve?</h2>
@@ -69,6 +69,7 @@
     <section>
       <h2 id="permisos" data-i18n="permisos_h2">Permisos requeridos</h2>
       <p data-i18n="permisos_texto">El token necesita, como mínimo, permiso de lectura sobre los buckets que el agente vaya a consultar — no uses un token "All Access" si puedes acotarlo.</p>
+      <table><thead><tr><th data-i18n="permisos_tabla_th1">Permiso</th><th data-i18n="permisos_tabla_th2">Para qué sirve</th></tr></thead><tbody><tr><td data-i18n="permisos_tabla_r1a">Lectura (Read) sobre los buckets</td><td data-i18n="permisos_tabla_r1b">Ejecutar consultas, listar buckets o mediciones y ver sus campos</td></tr><tr><td data-i18n="permisos_tabla_r2a">Escritura</td><td data-i18n="permisos_tabla_r2b">No se requiere: el conector no tiene operaciones de escritura</td></tr></tbody></table>
     </section>
 
     <section>
@@ -160,6 +161,12 @@
         "fabricante_paso3_texto": "La URL varía según sea InfluxDB Cloud (ej. tu región AWS/GCP/Azure) u OSS auto-hospedado.",
         "permisos_h2": "Permisos requeridos",
         "permisos_texto": "El token necesita, como mínimo, permiso de lectura sobre los buckets que el agente vaya a consultar — no uses un token \"All Access\" si puedes acotarlo.",
+        "permisos_tabla_th1": "Permiso",
+        "permisos_tabla_th2": "Para qué sirve",
+        "permisos_tabla_r1a": "Lectura (Read) sobre los buckets",
+        "permisos_tabla_r1b": "Ejecutar consultas, listar buckets o mediciones y ver sus campos",
+        "permisos_tabla_r2a": "Escritura",
+        "permisos_tabla_r2b": "No se requiere: el conector no tiene operaciones de escritura",
         "ruvic_h2": "Configuración en Ruvic",
         "ruvic_p1": "Entra a <strong>Settings → Conectores</strong>, busca la tarjeta <strong>InfluxDB</strong> y pulsa <strong>Configurar</strong>.",
         "ruvic_p2": "Completa la URL, token, y organización. Elige el lenguaje de consulta por defecto (Flux es lo recomendado salvo que necesites compatibilidad con InfluxDB 1.x).",
@@ -225,6 +232,12 @@
         "fabricante_paso3_texto": "The URL varies depending on whether it's InfluxDB Cloud (e.g. your AWS/GCP/Azure region) or self-hosted OSS.",
         "permisos_h2": "Required permissions",
         "permisos_texto": "The token needs, at minimum, read permission on the buckets the agent will query — don't use an \"All Access\" token if you can scope it down.",
+        "permisos_tabla_th1": "Permission",
+        "permisos_tabla_th2": "What it is for",
+        "permisos_tabla_r1a": "Read on the buckets",
+        "permisos_tabla_r1b": "Run queries, list buckets or measurements and view their fields",
+        "permisos_tabla_r2a": "Write",
+        "permisos_tabla_r2b": "Not required: the connector has no write operations",
         "ruvic_h2": "Setup in Ruvic",
         "ruvic_p1": "Go to <strong>Settings → Connectors</strong>, find the <strong>InfluxDB</strong> card and click <strong>Configure</strong>.",
         "ruvic_p2": "Fill in the URL, token, and organization. Choose the default query language (Flux is recommended unless you need InfluxDB 1.x compatibility).",
